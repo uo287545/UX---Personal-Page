@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    flex-direction: column;
+}
+
+nav{
+    display: flex;
+    gap: 1em;
+}
+
+section:has(form) form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    max-width: 50vw;
+}
