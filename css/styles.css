@@ -1,67 +1,319 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #BEF4EE;
-    color: #4C5270;
-}
+/* ===== Variables de diseño (colores, radios, sombras) ===== */
 
-h1,h2,h3,h4,h5,h6{
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-style: italic;
-}
-
-header{
-    background-color: #4C5270;
-    color: #68BBE3;
-}
-
-header a:link{
-    color: #a5d8f1;
-    /*La advertencia del valor de color de fondo ha sido comprobada
-    y no hay problema, ya que el color del fondo lo hereda del header
-    */
-}
-
-header a:visited{
-    color: #1e1212;
-    /*La advertencia del valor de color de fondo ha sido comprobada
-    y no hay problema, ya que el color del fondo lo hereda del header
-    */
-}
-
-:link:hover{
-    font-weight: bolder;
-}
-
-nav>ul{
-  list-style-type: none;
-}
-
-ol{
-    list-style-type: upper-roman;
-}
-
-ul{
-    list-style-type: disc;
-}
-
-dl dt{
-    color: black;
-    font-weight: bold;
-    font-style: oblique;
-    text-decoration: underline;
-    /*La advertencia del valor de color de fondo ha sido comprobada
-    y no hay problema, ya que el color del fondo lo hereda del body
-    */
-}
-
-caption{
-      font-weight: bold;
-      border: 3px solid #016650;
-      border-collapse: collapse;
+:root {
+    --color-bg: #f3fafc;
+    --color-surface: #ffffff;
+    --color-primary: #4c5270;
+    --color-primary-soft: #68bbe3;
+    --color-primary-dark: #292f4a;
+    --color-text: #1f2933;
+    --color-muted: #6b7280;
+  
+    --radius-lg: 1rem;
+    --shadow-soft: 0 12px 25px rgba(15, 23, 42, 0.12);
   }
-
-video, img{
-  width: 20%;
-  height: auto;
-}
+  
+  /* ===== Base ===== */
+  
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(
+        circle at top,
+        rgba(104, 187, 227, 0.18),
+        transparent 55%
+      ),
+      var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+  }
+  
+  /* Mejora del antialias de texto */
+  body,
+  input,
+  textarea,
+  button {
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* ===== Titulares ===== */
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Georgia", "Times New Roman", serif;
+    letter-spacing: 0.03em;
+    margin-top: 0;
+  }
+  
+  h1 {
+    font-size: clamp(1.6rem, 2vw + 1.2rem, 2.1rem);
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  /* ===== Cabecera y navegación ===== */
+  
+  header {
+    background: linear-gradient(120deg, var(--color-primary), var(--color-primary-dark));
+    color: #f9fafb;
+    box-shadow: var(--shadow-soft);
+    border-bottom-left-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+  }
+  
+  header h1 {
+    max-width: 28rem;
+  }
+  
+  /* Enlaces dentro del header (menú) */
+  
+  header nav a {
+    text-decoration: none;
+    color: #e5f6ff;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(15, 23, 42, 0.15);
+    backdrop-filter: blur(6px);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      transform 0.1s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  
+  header nav a:hover,
+  header nav a:focus-visible {
+    background-color: #ffffff;
+    color: var(--color-primary-dark);
+    border-color: transparent;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.35);
+  }
+  
+  header nav a:focus-visible {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+  }
+  
+  /* ===== Enlaces generales ===== */
+  
+  a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* ===== Secciones tipo tarjeta ===== */
+  
+  section {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1.75rem;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+  
+  section > p:first-of-type {
+    margin-top: 0.25rem;
+  }
+  
+  /* Texto */
+  
+  p {
+    margin: 0.5rem 0 0;
+  }
+  
+  /* Listas */
+  
+  ul,
+  ol {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+  }
+  
+  li + li {
+    margin-top: 0.25rem;
+  }
+  
+  /* Listas ordenadas en romano (si las usas) */
+  ol {
+    list-style-type: upper-roman;
+  }
+  
+  /* ===== Formularios ===== */
+  
+  label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.75rem;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+    font: inherit;
+    color: inherit;
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      background-color 0.2s ease;
+  }
+  
+  textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+  
+  input:focus,
+  textarea:focus {
+    outline: none;
+    border-color: var(--color-primary-soft);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(104, 187, 227, 0.35);
+  }
+  
+  /* Botones */
+  
+  button {
+    align-self: flex-start;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--color-primary);
+    color: #f9fafb;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition:
+      background 0.2s ease,
+      transform 0.1s ease,
+      box-shadow 0.2s ease;
+  }
+  
+  button:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.35);
+  }
+  
+  button:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(15, 23, 42, 0.25);
+  }
+  
+  button:disabled,
+  button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+  
+  /* ===== Imágenes, vídeo y figuras ===== */
+  
+  img,
+  video {
+    max-width: 100%;
+    width: 30vw;
+    height: auto;
+    display: block;
+  }
+  
+  /* Galerías / figuras concretas */
+  
+  figure {
+    margin: 1.5rem 0 0;
+    text-align: center;
+  }
+  
+  figure img {
+    max-width: min(260px, 100%);
+    border-radius: 1rem;
+    box-shadow: 0 12px 26px rgba(15, 23, 42, 0.28);
+  }
+  
+  figcaption {
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+  
+  /* ===== Tablas (por si las usas más adelante) ===== */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    background: var(--color-surface);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  }
+  
+  th,
+  td {
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  th {
+    text-align: left;
+    font-weight: 600;
+    background: #eff6ff;
+  }
+  
+  caption {
+    font-weight: bold;
+    padding: 0.75rem;
+  }
+  
+  /* ===== Pie de página ===== */
+  
+  footer {
+    background: #020617;
+    color: #e5e7eb;
+    text-align: center;
+    font-size: 0.85rem;
+  }
+  
+  footer p {
+    margin: 0;
+  }
+  
+  /* ===== Ajustes responsive ===== */
+  
+  @media (max-width: 640px) {
+    header h1 {
+      font-size: 1.25rem;
+    }
+  
+    section {
+      padding: 1.25rem 1.25rem;
+    }
+  
+    header nav a {
+      font-size: 0.85rem;
+      padding: 0.35rem 0.75rem;
+    }
+  }  
