@@ -70,10 +70,6 @@ header {
   border-bottom-right-radius: 1.25rem;
 }
 
-header h1 {
-  max-width: 28rem;
-}
-
 /* Enlaces dentro del header (menú) */
 
 header nav a {
@@ -117,7 +113,7 @@ body > nav {
   font-size: 0.9rem;
 }
 
-body > nav ol {
+body > nav ol, footer nav ul {
   list-style: none;
 }
 

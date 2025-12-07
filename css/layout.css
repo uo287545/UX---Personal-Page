@@ -35,10 +35,10 @@ body > nav {
   padding: 0.5rem 1rem;
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
-body > nav ol {
+body > nav ol, footer nav ul {
   padding: 0;
   margin: 0;
   gap: 0.5rem;
@@ -48,6 +48,13 @@ body > nav ol {
 
 body > nav li:not(:last-child)::after {
   margin-left: 0.5rem;
+}
+
+footer > nav {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Contenido principal centrado y con ancho cómodo */
