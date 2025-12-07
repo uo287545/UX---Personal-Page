@@ -1,42 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>Contacto</title>
-    <link rel="stylesheet" href="css/styles.css" >
-    <link rel="stylesheet" href="css/layout.css" >
-  </head>
-  <body>
-    <header>
-      <h1>Página personal de Iker Álvarez Fernández</h1>
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="aficiones.html">Aficiones</a>
-        <a href="temas-interes.html">Temas de Interés</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Contacto</h2>
-        <form action="#" method="post">
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre" required >
 
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
 
-          <label for="mensaje">Mensaje:</label>
-          <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+<body>
+  <header>
+    <h1>Página personal de Iker Álvarez Fernández</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="aficiones.html">Aficiones</a>
+      <a href="temas-interes.html">Temas de Interés</a>
+      <a href="contacto.html" aria-current="page">Contacto</a>
+    </nav>
+  </header>
+  <nav aria-label="Ruta de navegación">
+    <ol>
+      <li><a href="index.html">Inicio</a></li>
+      <li>Contacto</li>
+    </ol>
+  </nav>
+  <main>
+    <section>
+      <h2>Contacto</h2>
+      <form action="#" method="post">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
 
-          <button type="submit">Enviar</button>
-        </form>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Iker Álvarez Fernández</p>
-    </footer>
-  </body>
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Iker Álvarez Fernández</p>
+  </footer>
+</body>
+
 </html>

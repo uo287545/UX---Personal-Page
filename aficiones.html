@@ -1,84 +1,93 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" >
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <title>Aficiones</title>
-    <link rel="stylesheet" href="css/styles.css" >
-    <link rel="stylesheet" href="css/layout.css" >
-  </head>
-  <body>
-    <header>
-      <h1>Página personal de Iker Álvarez Fernández</h1>
-      <nav>
-        <a href="index.html">Inicio</a>
-        <a href="sobre-mi.html">Sobre mí</a>
-        <a href="aficiones.html">Aficiones</a>
-        <a href="temas-interes.html">Temas de Interés</a>
-        <a href="contacto.html">Contacto</a>
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h2>Mis aficiones</h2>
-        <p>
-          En mi tiempo libre disfruto de varias actividades que me ayudan a
-          desconectar, aprender y relajarme. Aquí muestro algunas de ellas con
-          imágenes y vídeos.
-        </p>
-      </section>
 
-      <section>
-        <h3>Música</h3>
-        <p>
-          Escuchar música de todo tipo. Una de mis bandas favoritas es Imagine
-          Dragons.
-        </p>
-        <video controls width="400">
-          <source src="video/believer.mp4" type="video/mp4" >
-          Tu navegador no soporta el video.
-        </video>
-      </section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aficiones</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
+</head>
 
-      <section>
-        <h3>Fotografía</h3>
-        <p>
-          Me gusta sacar fotos siempre que puedo. Aquí una pequeña muestra de
-          mis fotos favoritas.
-        </p>
-        <div class="gallery">
-          <img src="img/foto1.png" alt="Paisaje en la montaña" >
-          <img src="img/foto2.png" alt="Atardecer en la playa" >
-          <img src="img/foto3.png" alt="Fotografía urbana" >
-        </div>
-      </section>
+<body>
+  <header>
+    <h1>Página personal de Iker Álvarez Fernández</h1>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="sobre-mi.html">Sobre mí</a>
+      <a href="aficiones.html" aria-current="page">Aficiones</a>
+      <a href="temas-interes.html">Temas de Interés</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+  <nav aria-label="Ruta de navegación">
+    <ol>
+      <li><a href="index.html">Inicio</a></li>
+      <li>Aficiones</li>
+    </ol>
+  </nav>
+  <main>
+    <section>
+      <h2>Mis aficiones</h2>
+      <p>
+        En mi tiempo libre disfruto de varias actividades que me ayudan a
+        desconectar, aprender y relajarme. Aquí muestro algunas de ellas con
+        imágenes y vídeos.
+      </p>
+    </section>
 
-      <section>
-        <h3>Coches</h3>
-        <p>
-          Me apasionan los coches y todo lo relacionado con el automovilismo.
-          Aquí un vídeo de uno de mis coches favoritos.
-        </p>
-        <video controls width="400">
-          <source src="video/coches.mp4" type="video/mp4" >
-          Tu navegador no soporta el video.
-        </video>
-      </section>
+    <section>
+      <h3>Música</h3>
+      <p>
+        Escuchar música de todo tipo. Una de mis bandas favoritas es Imagine
+        Dragons.
+      </p>
+      <video controls width="400">
+        <source src="video/believer.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </section>
 
-      <section>
-        <h3>Videojuegos</h3>
-        <p>
-          También disfruto jugar videojuegos, especialmente los de
-          supervivencia. Aquí muestro el trailer de uno de mis favoritos.
-        </p>
-        <video controls width="400">
-          <source src="video/juego.mp4" type="video/mp4" >
-          Tu navegador no soporta el video.
-        </video>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2025 Iker Álvarez Fernández</p>
-    </footer>
-  </body>
+    <section>
+      <h3>Fotografía</h3>
+      <p>
+        Me gusta sacar fotos siempre que puedo. Aquí una pequeña muestra de
+        mis fotos favoritas.
+      </p>
+      <div class="gallery">
+        <img src="img/foto1.png" alt="Paisaje en la montaña">
+        <img src="img/foto2.png" alt="Atardecer en la playa">
+        <img src="img/foto3.png" alt="Fotografía urbana">
+      </div>
+    </section>
+
+    <section>
+      <h3>Coches</h3>
+      <p>
+        Me apasionan los coches y todo lo relacionado con el automovilismo.
+        Aquí un vídeo de uno de mis coches favoritos.
+      </p>
+      <video controls width="400">
+        <source src="video/coches.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </section>
+
+    <section>
+      <h3>Videojuegos</h3>
+      <p>
+        También disfruto jugar videojuegos, especialmente los de
+        supervivencia. Aquí muestro el trailer de uno de mis favoritos.
+      </p>
+      <video controls width="400">
+        <source src="video/juego.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Iker Álvarez Fernández</p>
+  </footer>
+</body>
+
 </html>
