@@ -228,10 +228,6 @@ class LocalizationManager {
         document.querySelectorAll('[data-lang-btn]').forEach(btn => {
             const isCurrent = btn.getAttribute('data-lang-btn') === lang;
             
-            // Estilo visual
-            btn.style.fontWeight = isCurrent ? 'bold' : 'normal';
-            btn.style.textDecoration = isCurrent ? 'underline' : 'none';
-            
             // Atributo de accesibilidad
             if (isCurrent) {
                 btn.setAttribute('aria-current', 'true');

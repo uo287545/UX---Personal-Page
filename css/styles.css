@@ -239,104 +239,118 @@ body > a[href^="#main"]:focus {
     top: 0;
 }
 
-/* ===== Buscador sin clases ni IDs ===== */
-
-/* El contenedor principal */
-header>div {
-    position: relative;
-    width: 15rem;
-    font-size: 0.9rem;
+/* ===== Estilos para el Motor de Búsqueda ===== */
+header > div {
+  position: relative;
+  margin-top: 1rem;
 }
 
-/* El formulario y su contenedor flex interno */
-header>div form > div {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 999px; /* Píldora */
-    padding: 0.2rem 0.5rem;
-    transition: background 0.3s;
+/* Necesario para posicionar el icono SVG absolutamente dentro del form */
+header > div form {
+  position: relative;
+  color: #666; /* Color base para el icono */
 }
 
-/* Efecto focus-within sin clases */
-header>div form > div:focus-within {
-    background: #ffffff;
-    border-color: var(--color-primary);
+/* Icono de la lupa */
+header > div form svg {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem; /* Espacio desde la izquierda */
+  transform: translateY(-50%); /* Centrado vertical exacto */
+  pointer-events: none; /* Permite hacer clic "a través" del icono hacia el input */
+  transition: color 0.3s;
 }
 
-/* El input de texto */
-header>div input[type="search"] {
-    background: transparent;
-    border: none;
-    color: inherit; /* Hereda color blanco del header */
-    width: 100%;
-    outline: none;
-    padding: 0.3rem;
+/* Campo de búsqueda */
+header > div form input[type="search"] {
+  padding: 0.6rem 1rem 0.6rem 2.5rem; /* Padding izquierdo grande para dejar sitio al icono */
+  border: 0.125rem solid #ccc;
+  border-radius: 0.25rem;
+  width: 100%;
+  min-width: 250px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  /* Aseguramos que el texto y el placeholder hereden el color correcto si el contenedor cambia */
+  color: #333;
 }
 
-/* Cambiar color de texto cuando el fondo es blanco */
-header>div form > div:focus-within input[type="search"] {
-    color: #1f2933; /* Color oscuro */
+/* Estados de foco: Cambiamos el color del borde y del icono para feedback visual */
+header > div form input[type="search"]:focus {
+  outline: none;
+  border-color: #333; /* Color de foco accesible */
 }
 
-/* El botón de la lupa */
-header>div button {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    color: inherit;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.2rem;
-}
-
-header>div button:hover {
-    transform: scale(1.1);
-}
-
-/* La lista de resultados (dropdown) */
-header>div ul {
-    position: absolute;
-    top: 120%;
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    z-index: 1000;
-    border: 1px solid #e5e7eb;
-    overflow: hidden;
-}
-
-/* Ocultar visualmente cuando tiene atributo hidden (reset) */
-header>div ul[hidden] {
-    display: none;
-}
-
-/* Elementos de la lista */
-header>div li {
-    border-bottom: 1px solid #f3f4f6;
-}
-
-header>div li:last-child {
-    border-bottom: none;
-}
-
-/* Enlaces dentro de los resultados */
-header>div a {
+/* Cuando el input tiene el foco, cambiamos el color del svg hermano */
+header > div form input[type="search"]:focus ~ svg,
+header > div form:focus-within svg {
     color: #333;
 }
 
-header>div a:hover {
-    background-color: #f0f9ff;
-    color: var(--color-primary);
+/* --- Lista de resultados desplegable (Sin cambios respecto a la versión anterior) --- */
+header > div ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 0.0625rem solid #ddd;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1000;
+  max-height: 20rem;
+  overflow-y: auto;
 }
 
+header > div ul[hidden] {
+  display: none;
+}
+
+header > div ul li {
+  border-bottom: 0.0625rem solid #eee;
+}
+
+header > div ul li:last-child {
+  border-bottom: none;
+}
+
+header > div ul li a {
+  display: block;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.2s;
+}
+
+header > div ul li a:hover,
+header > div ul li a:focus {
+  background-color: #f5f5f5;
+  outline: 0.125rem solid #000;
+  outline-offset: -0.125rem;
+}
+
+header > div ul li a strong {
+  display: block;
+  font-size: 1rem;
+  color: #000;
+  margin-bottom: 0.2rem;
+}
+
+header > div ul li a small {
+  display: block;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+header > div ul li span {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #666;
+  font-style: italic;
+}
 /* ===== Ajustes Específicos para Pantallas Pequeñas ===== */
 
 @media (max-width: 30rem) { /* aprox 480px */
