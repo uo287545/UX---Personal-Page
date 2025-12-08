@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="footer.help">Ayuda</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <script src="js/LocalizationManager.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Iker Álvarez Fernández</h1>
+        <nav>
+            <a href="index.html" data-i18n="nav.home">Inicio</a>
+            <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+            <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+            <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+            <a href="contacto.html" aria-current="page" data-i18n="nav.contact">Contacto</a>
+        </nav>
+    </header>
+    <nav aria-label="Ruta de navegación">
+        <ol>
+            <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+            <li data-i18n="footer.help">Ayuda</li>
+        </ol>
+    </nav>
+    <main>
+        <section id="help">
+            <h2 data-i18n="help.title">Ayuda de Navegación</h2>
+            <p data-i18n="help.intro">
+                Este sitio web ha sido diseñado priorizando la accesibilidad y la sencillez.
+                A continuación se describen las características disponibles para facilitar su uso.
+            </p>
+
+            <h3 data-i18n="help.structure">Estructura del sitio</h3>
+            <p data-i18n="help.structure.text">
+                El sitio se compone de cinco secciones principales accesibles desde el menú superior.
+                Para conocer la estructura completa, puede consultar el <a href="mapa-sitio.html" data-i18n="footer.map">Mapa del Sitio</a>.
+            </p>
+
+            <h3 data-i18n="help.shortcuts">Atajos de Teclado y Accesibilidad</h3>
+            <ul>
+                <li data-i18n="help.shortcuts.skip">
+                    <strong>Navegación por teclado:</strong> Todos los elementos son accesibles mediante el tabulador.
+                    El foco visual se resalta claramente con un borde de color.
+                </li>
+                <li data-i18n="help.shortcuts.text-size">
+                    <strong>Tamaño de texto:</strong> El sitio utiliza unidades relativas. Puede aumentar el tamaño
+                    del texto usando las funciones de zoom de su navegador (<code>'Ctrl'</code> + <code>'+'</code>).
+                </li>
+            </ul>
+
+            <h3 data-i18n="help.compatibility">Compatibilidad</h3>
+            <p data-i18n="help.compatibility.text">
+                Este sitio es compatible con navegadores modernos (Chrome, Firefox, Edge, Safari) y se adapta
+                automáticamente a dispositivos móviles y tabletas.
+            </p>
+        </section>
+    </main>
+    <footer>
+        <nav aria-label="Enlaces de interés">
+            <ul>
+                <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+                <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+                <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
+            </ul>
+        </nav>
+        <form aria-label="Elección de idioma">
+            <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+            <select id="language-select" name="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </form>
+        <p>&copy; 2025 Iker Álvarez Fernández</p>
+    </footer>
+</body>
+
+</html>

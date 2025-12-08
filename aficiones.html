@@ -4,41 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aficiones</title>
+  <title data-i18n="nav.hobbies">Aficiones</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="aficiones.html" aria-current="page">Aficiones</a>
-      <a href="temas-interes.html">Temas de Interés</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" aria-current="page" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <nav aria-label="Ruta de navegación">
     <ol>
-      <li><a href="index.html">Inicio</a></li>
-      <li>Aficiones</li>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li data-i18n="nav.hobbies">Aficiones</li>
     </ol>
   </nav>
   <main>
-    <section id="hobbies">
-      <h2>Mis aficiones</h2>
-      <p>
-        En mi tiempo libre disfruto de varias actividades que me ayudan a
-        desconectar, aprender y relajarme. Aquí muestro algunas de ellas con
-        imágenes y vídeos.
-      </p>
-    </section>
-
+    <h2 data-i18n="myhobbies">Mis Aficiones</h2>
     <section id="music">
-      <h3>Música</h3>
-      <p>
+      <h3 data-i18n="hobbies.music">Música</h3>
+      <p data-i18n="hobbies.music.text">
         Escuchar música de todo tipo. Una de mis bandas favoritas es Imagine
         Dragons.
       </p>
@@ -49,8 +42,8 @@
     </section>
 
     <section id="photography">
-      <h3>Fotografía</h3>
-      <p>
+      <h3 data-i18n="hobbies.photography">Fotografía</h3>
+      <p data-i18n="hobbies.photography.text">
         Me gusta sacar fotos siempre que puedo. Aquí una pequeña muestra de
         mis fotos favoritas.
       </p>
@@ -62,8 +55,8 @@
     </section>
 
     <section id="cars">
-      <h3>Coches</h3>
-      <p>
+      <h3 data-i18n="hobbies.cars">Coches</h3>
+      <p data-i18n="hobbies.cars.text">
         Me apasionan los coches y todo lo relacionado con el automovilismo.
         Aquí un vídeo de uno de mis coches favoritos.
       </p>
@@ -74,8 +67,8 @@
     </section>
 
     <section id="video-games">
-      <h3>Videojuegos</h3>
-      <p>
+      <h3 data-i18n="hobbies.video-games">Videojuegos</h3>
+      <p data-i18n="hobbies.video-games.text">
         También disfruto jugar videojuegos, especialmente los de
         supervivencia. Aquí muestro el trailer de uno de mis favoritos.
       </p>
@@ -88,11 +81,18 @@
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>

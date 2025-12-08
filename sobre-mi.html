@@ -4,85 +4,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre mí</title>
+  <title data-i18n="nav.about">Sobre mí</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html" aria-current="page">Sobre mí</a>
-      <a href="aficiones.html">Aficiones</a>
-      <a href="temas-interes.html">Temas de Interés</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" aria-current="page" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <nav aria-label="Ruta de navegación">
     <ol>
-      <li><a href="index.html">Inicio</a></li>
-      <li>Sobre mí</li>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li data-i18n="nav.about">Sobre mí</li>
     </ol>
   </nav>
   <main>
+    <h2 data-i18n="nav.about">Sobre mí</h2>
     <section id="biography">
-      <h2>Biografía</h2>
-      <p>
+      <h3 data-i18n="about.biography">Biografía</h3>
+      <p data-i18n="about.biography.text">
         Me llamo Iker Álvarez Fernández, estudio el Máster en Ingeniería Web y
         me apasiona la informática, el desarrollo web y la ciberseguridad.
       </p>
     </section>
 
     <section id="education">
-      <h2>Formación</h2>
+      <h3 data-i18n="about.education">Formación</h3>
       <ul>
         <li>
-          <p>2025 - En curso</p>
-          <p>Máster en Ingeniería Web - Universidad de Oviedo</p>
+          <p data-i18n="about.education.time">2025 - En curso</p>
+          <p data-i18n="about.education.degree">Máster en Ingeniería Web - Universidad de Oviedo</p>
         </li>
         <li>
-          <p>2021-2025</p>
-          <p>Grado en Ingeniería del Software - Universidad de Oviedo</p>
+          <p data-i18n="about.education.time.1">2021-2025</p>
+          <p data-i18n="about.education.degree.1">Grado en Ingeniería del Software - Universidad de Oviedo</p>
         </li>
       </ul>
     </section>
     <section id="experience">
-      <h2>Experiencia laboral</h2>
+      <h3 data-i18n="about.experience">Experiencia laboral</h3>
       <ul>
         <li>
-          <p>1/2/2025 - 31/3/2025</p>
-          <p>Becario en el área de arquitectura cloud en NTTData</p>
+          <p data-i18n="about.experience.time">1/2/2025 - 31/3/2025</p>
+          <p data-i18n="about.experience.position">Becario en el área de arquitectura cloud en NTTData</p>
         </li>
       </ul>
     </section>
 
     <section id="skills">
-      <h2>Habilidades</h2>
+      <h3 data-i18n="about.skills">Habilidades</h3>
       <ul>
-        <li>HTML5, CSS3, JavaScript, TypeScript</li>
-        <li>Frameworks: Spring-Boot y WPF</li>
-        <li>Programación en Java, C#, C++ y Python</li>
-        <li>Diseño accesible y responsive</li>
+        <li data-i18n="about.skills.list.1">HTML5, CSS3, JavaScript, TypeScript</li>
+        <li data-i18n="about.skills.list.2">Frameworks: Spring-Boot y WPF</li>
+        <li data-i18n="about.skills.list.3">Programación en Java, C#, C++ y Python</li>
+        <li data-i18n="about.skills.list.4">Diseño accesible y responsive</li>
       </ul>
     </section>
 
     <section id="projects">
-      <h2>Proyectos destacados</h2>
+      <h3 data-i18n="about.projects">Proyectos destacados</h3>
       <dl>
-        <dt>Proyecto 1: Sitio personal</dt>
-        <dd>
+        <dt data-i18n="about.projects.list.1.title">Proyecto 1: Sitio personal</dt>
+        <dd data-i18n="about.projects.list.1.description">
           Desarrollo de una página web personal utilizando HTML, CSS y
           JavaScript para mostrar mi portafolio y habilidades.
         </dd>
-        <dt>Proyecto 2: Editor X3D</dt>
-        <dd>
+        <dt data-i18n="about.projects.list.2.title">Proyecto 2: Editor X3D</dt>
+        <dd data-i18n="about.projects.list.2.description">
           Creación de una herramienta web para visualizar y manejar figuras 3D
           en formato X3D a partir de formularios web.
         </dd>
-        <dt>Proyecto 3: Aplicación Portapapeles Avanzado</dt>
-        <dd>
+        <dt data-i18n="about.projects.list.3.title">Proyecto 3: Aplicación Portapapeles Avanzado</dt>
+        <dd data-i18n="about.projects.list.3.description">
           Desarrollo de una aplicación de escritorio en C# para gestionar
           múltiples entradas del portapapeles con funcionalidades avanzadas.
           Presentada como proyecto final de carrera.
@@ -91,26 +93,33 @@
     </section>
 
     <section id="gallery">
-      <h2>Galería</h2>
+      <h3 data-i18n="about.gallery">Galería</h3>
       <figure>
         <img src="img/perfil.jpg" alt="Foto de Iker Álvarez Fernández" width="250">
-        <figcaption>Foto personal</figcaption>
+        <figcaption data-i18n="about.gallery.caption.1">Foto personal</figcaption>
       </figure>
       <figure>
         <img src="img/proyecto.png" alt="Captura de la pantalla de inicio del proyecto Portapapeles Avanzado"
           width="250">
-        <figcaption>Proyecto reciente</figcaption>
+        <figcaption data-i18n="about.gallery.caption.2">Proyecto reciente</figcaption>
       </figure>
     </section>
   </main>
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.sitemap">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="footer.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>

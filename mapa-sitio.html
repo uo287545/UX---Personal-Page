@@ -4,81 +4,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapa del sitio</title>
+  <title data-i18n="footer.map">Mapa del sitio</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="aficiones.html">Aficiones</a>
-      <a href="temas-interes.html">Temas de Interés</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <nav aria-label="Ruta de navegación">
     <ol>
-      <li><a href="index.html">Inicio</a></li>
-      <li>Mapa del sitio</li>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li data-i18n="footer.map">Mapa del sitio</li>
     </ol>
   </nav>
   <main>
-      <section>
-        <h2>Mapa del Sitio</h2>
-        <p>Listado completo de las páginas disponibles en este sitio web:</p>
-        
-        <ul>
-            <li><a href="index.html">Inicio</a>
-                <ul>
-                    <li><a href="index.html#welcome">Bienvenida</a></li>
-                </ul>
-            </li>
-            <li><a href="sobre-mi.html">Sobre mí</a>
-                <ul>
-                    <li><a href="sobre-mi.html#biography">Biografía</a></li>
-                    <li><a href="sobre-mi.html#education">Formación</a></li>
-                    <li><a href="sobre-mi.html#experience">Experiencia laboral</a></li>
-                    <li><a href="sobre-mi.html#skills">Habilidades</a></li>
-                    <li><a href="sobre-mi.html#projects">Proyectos destacados</a></li>
-                    <li><a href="sobre-mi.html#gallery">Galería</a></li>
-                </ul>
-            </li>
-            <li><a href="aficiones.html">Aficiones</a>
-                <ul>
-                    <li><a href="aficiones.html#hobbies">Mis aficiones</a></li>
-                    <li><a href="aficiones.html#music">Música</a></li>
-                    <li><a href="aficiones.html#photography">Fotografía</a></li>
-                    <li><a href="aficiones.html#cars">Coches</a></li>
-                    <li><a href="aficiones.html#video-games">Videojuegos</a></li>
-                </ul>
-            </li>
-            <li><a href="temas-interes.html">Temas de Interés</a>
-                <ul>
-                    <li><a href="temas-interes.html#interests">Temas de interés</a></li>
-                    <li><a href="temas-interes.html#technology-web">Tecnología y Web</a></li>
-                    <li><a href="temas-interes.html#cinema">Cine</a></li>
-                </ul>
-            </li>
-            <li><a href="contacto.html">Contacto</a>
-                <ul>
-                    <li><a href="contacto.html#contact">Formulario de contacto</a></li>
-                </ul>
-            </li>
-        </ul>
-      </section>
+    <section>
+      <h2 data-i18n="footer.map">Mapa del Sitio</h2>
+      <p data-i18n="map.text">Listado completo de las páginas disponibles en este sitio web:</p>
+
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Inicio</a>
+          <ul>
+            <li><a href="index.html#welcome">Bienvenida</a></li>
+          </ul>
+        </li>
+        <li><a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+          <ul>
+            <li><a href="sobre-mi.html#biography" data-i18n="about.biography">Biografía</a></li>
+            <li><a href="sobre-mi.html#education" data-i18n="about.education">Formación</a></li>
+            <li><a href="sobre-mi.html#experience" data-i18n="about.experience">Experiencia laboral</a></li>
+            <li><a href="sobre-mi.html#skills" data-i18n="about.skills">Habilidades</a></li>
+            <li><a href="sobre-mi.html#projects" data-i18n="about.projects">Proyectos destacados</a></li>
+            <li><a href="sobre-mi.html#gallery" data-i18n="about.gallery">Galería</a></li>
+          </ul>
+        </li>
+        <li><a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+          <ul>
+            <li><a href="aficiones.html#music" data-i18n="hobbies.music">Música</a></li>
+            <li><a href="aficiones.html#photography" data-i18n="hobbies.photography">Fotografía</a></li>
+            <li><a href="aficiones.html#cars" data-i18n="hobbies.cars">Coches</a></li>
+            <li><a href="aficiones.html#video-games" data-i18n="hobbies.video-games">Videojuegos</a></li>
+          </ul>
+        </li>
+        <li><a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+          <ul>
+            <li><a href="temas-interes.html#technology-web" data-i18n="interests.technology-web">Tecnología y Web</a></li>
+            <li><a href="temas-interes.html#cinema" data-i18n="interests.cinema">Cine</a></li>
+          </ul>
+        </li>
+        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a>
+          <ul>
+            <li><a href="contacto.html#contact" data-i18n="contact.title">Datos de contacto</a></li>
+          </ul>
+        </li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a>
+          <ul>
+            <li><a href="ayuda.html#help" data-i18n="help.title">Ayuda de navegación</a></li>
+          </ul>
+      </ul>
+    </section>
   </main>
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="footer.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>

@@ -4,48 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Temas de interés</title>
+  <title data-i18n="nav.interests">Temas de interés</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="aficiones.html">Aficiones</a>
-      <a href="temas-interes.html" aria-current="page">Temas de Interés</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" aria-current="page" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <nav aria-label="Ruta de navegación">
     <ol>
-      <li><a href="index.html">Inicio</a></li>
-      <li>Temas de Interés</li>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li data-i18n="nav.interests">Temas de Interés</li>
     </ol>
   </nav>
   <main>
-    <section id="interests">
-      <h2>Temas de interés</h2>
-      <p>
-        Además de mis aficiones, tengo varios temas que me apasionan y que
-        sigo de cerca en mi día a día. Aquí comparto algunos de ellos.
-      </p>
-    </section>
-
+    <h2 data-i18n="nav.interests">Temas de Interés</h2>
     <section id="technology-web">
-      <h3>Tecnología y Web</h3>
-      <p>
+      <h3 data-i18n="interests.technology-web">Tecnología y Web</h3>
+      <p data-i18n="interests.technology-web.text">
         Me interesa el desarrollo web, la inteligencia artificial y cómo la
         tecnología transforma la vida cotidiana.
       </p>
     </section>
 
     <section id="cinema">
-      <h3>Cine</h3>
-      <p>
+      <h3 data-i18n="interests.cinema">Cine</h3>
+      <p data-i18n="interests.cinema.text">
         El cine me apasiona como medio de contar historias. Me interesa
         especialmente el cine de ciencia ficción y los documentales.
       </p>
@@ -54,11 +48,18 @@
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="footer.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>

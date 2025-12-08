@@ -4,53 +4,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contacto</title>
+  <title data-i18n="nav.contact">Contacto</title>
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="aficiones.html">Aficiones</a>
-      <a href="temas-interes.html">Temas de Interés</a>
-      <a href="contacto.html" aria-current="page">Contacto</a>
+      <a href="index.html" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact" aria-current="page">Contacto</a>
     </nav>
   </header>
   <nav aria-label="Ruta de navegación">
     <ol>
-      <li><a href="index.html">Inicio</a></li>
-      <li>Contacto</li>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li data-i18n="nav.contact">Contacto</li>
     </ol>
   </nav>
   <main>
     <section id="contact">
-      <h2>Contacto</h2>
-      <form action="#" method="post">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required>
+      <h2 data-i18n="contact.title">Vías de contacto</h2>
+      <p data-i18n="contact.intro">
+        Estaré encantado de atenderte a través de cualquiera de los siguientes canales directos:
+      </p>
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" id="email" name="email" required>
+      <ul>
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+        <li>
+          <strong data-i18n="contact.email.label">Correo Electrónico:</strong><br>
+          <a href="mailto:uo287545@uniovi.es">uo287545@uniovi.es</a>
+        </li>
 
-        <button type="submit">Enviar</button>
-      </form>
+        <li>
+          <strong data-i18n="contact.linkedin.label">LinkedIn (Perfil Profesional):</strong><br>
+          <a href="#" target="_blank" rel="noopener noreferrer">linkedin.com/in/ikeralvarez</a>
+        </li>
+
+        <li>
+          <strong data-i18n="contact.github.label">GitHub (Repositorio de Código):</strong><br>
+          <a href="#" target="_blank" rel="noopener noreferrer">github.com/ikeralvarez</a>
+        </li>
+
+        <li data-i18n="contact.study">
+          <strong data-i18n="contact.study.label">Actual lugar de estudio:</strong><br>
+          Escuela de Ingeniería Informática, Universidad de Oviedo.
+        </li>
+      </ul>
     </section>
   </main>
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="footer.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>

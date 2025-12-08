@@ -4,40 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página Web Personal</title>
+  <title data-i18n="site.title">Página Web Personal</title>
   <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/LocalizationManager.js" defer></script>
 </head>
 
 <body>
   <header>
     <h1>Iker Álvarez Fernández</h1>
     <nav>
-      <a href="index.html" aria-current="page">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="aficiones.html">Aficiones</a>
-      <a href="temas-interes.html">Temas de Interés</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="index.html" aria-current="page" data-i18n="nav.home">Inicio</a>
+      <a href="sobre-mi.html" data-i18n="nav.about">Sobre mí</a>
+      <a href="aficiones.html" data-i18n="nav.hobbies">Aficiones</a>
+      <a href="temas-interes.html" data-i18n="nav.interests">Temas de Interés</a>
+      <a href="contacto.html" data-i18n="nav.contact">Contacto</a>
     </nav>
   </header>
   <main>
+    <h2 data-i18n="nav.home">Inicio</h2>
     <section id="welcome">
-      <h2>¿Qué es esta página?</h2>
-      <p>
-        Este es mi sitio web personal donde comparto quién soy, qué me
-        interesa y mucho más.
+      <h3 data-i18n="welcome.title">¿Qué es esta página?</h3>
+      <p data-i18n="welcome.text">
+        Bienvenido a mi sitio web personal donde comparto quién soy, qué me interesa y mucho más.
       </p>
     </section>
   </main>
   <footer>
     <nav aria-label="Enlaces de interés">
       <ul>
-        <li><a href="mapa-sitio.html">Mapa del sitio</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="ayuda.html">Ayuda</a></li>
+        <li><a href="mapa-sitio.html" data-i18n="footer.map">Mapa del sitio</a></li>
+        <li><a href="contacto.html" data-i18n="nav.contact">Contacto</a></li>
+        <li><a href="ayuda.html" data-i18n="footer.help">Ayuda</a></li>
       </ul>
     </nav>
+    <form aria-label="Elección de idioma">
+      <label for="language-select" data-i18n="langage-select-label">Idioma:</label>
+      <select id="language-select" name="language-select">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+      </select>
+    </form>
     <p>&copy; 2025 Iker Álvarez Fernández</p>
   </footer>
 </body>
