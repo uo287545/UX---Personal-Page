@@ -167,7 +167,7 @@ ul, ol {
 /* ===== Imágenes y Media (CRÍTICO PARA MÉTRICA 1.4) ===== */
 
 img, video {
-    max-width: 100%; /* Nunca más ancho que su padre */
+    width: 50%;
     height: auto;    /* Mantiene la proporción siempre */
     display: block;  /* Evita huecos extraños debajo */
 }
