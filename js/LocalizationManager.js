@@ -1,11 +1,10 @@
 /**
  * Clase responsable de gestionar la internacionalización (i18n) del sitio.
- * Sigue el patrón Singleton implícito al instanciarse una sola vez al cargar.
  */
 class LocalizationManager {
     
     constructor() {
-        // 1. Definición del Diccionario de Traducciones (Propiedad de la instancia)
+        // 1. Definición del diccionario de traducciones
         this.translations = {
             es: {
                 'site.title': 'Página web personal',
@@ -48,6 +47,14 @@ class LocalizationManager {
                 'about.experience': 'Experiencia profesional',
                 'about.experience.time': '1/2/2025 - 31/3/2025',
                 'about.experience.position': 'Becario en el área de arquitectura cloud en NTTData',
+                'about.experience.time.1': '1/7/2025 - 31/8/2025',
+                'about.experience.position.1': 'Becario en desarrollo de software en AITIC',
+                'about.references_title': 'Referencias y avales',
+                'about.references_intro': 'Personas que pueden dar fe de mi desempeño académico y profesional:',
+                'about.ref1_quote': '\"Iker demostró una gran capacidad de resolución de problemas durante su estancia en prácticas, integrándose rápidamente en el equipo.\"',
+                'about.ref1_role': 'Jefe de departamento en AITIC',
+                'about.ref2_quote': '\"Un desarrollador proactivo con excelentes habilidades técnicas y de comunicación. Fue clave en el éxito del módulo de facturación.\"',
+                'about.ref2_role': 'Tech Lead / Supervisora de Prácticas en NTTData',
                 'about.skills': 'Habilidades',
                 'about.skills.list.1': 'HTML5, CSS3, JavaScript, TypeScript',
                 'about.skills.list.2': 'Frameworks: Spring-Boot y WPF',
@@ -68,7 +75,7 @@ class LocalizationManager {
                 'interests.cinema': 'Cine',
                 'interests.cinema.text': 'El cine me apasiona como medio de contar historias. Me interesa especialmente el cine de ciencia ficción y los documentales.',
                 'map.text': 'Listado completo de las páginas disponibles en este sitio web:',
-                'footer.updated': 'Actualizado:',
+                'footer.updated': 'Última actualización: 10 de diciembre de 2025',
                 'footer.map': 'Mapa del sitio',
                 'footer.help': 'Ayuda',
                 'footer.contact': 'Contacto',
@@ -81,66 +88,97 @@ class LocalizationManager {
                 'nav.home': 'Home',
                 'nav.about': 'About me',
                 'nav.hobbies': 'Hobbies',
-                'nav.interests': 'Interests',
+                'nav.interests': 'Topics of interest',
                 'nav.contact': 'Contact',
+
                 'welcome.title': 'What is this page?',
-                'welcome.text': 'Welcome to my personal website where I share who I am, what interests me, and much more.',
+                'welcome.text': 'Welcome to my personal website where I share who I am, what I am interested in and much more.',
+
                 'hobbies.music': 'Music',
                 'hobbies.music.text': 'Listening to all kinds of music. One of my favourite bands is Imagine Dragons.',
                 'hobbies.photography': 'Photography',
-                'hobbies.photography.text': 'I like taking photos whenever I can. Here is a small sample of my favourite pictures.',
+                'hobbies.photography.text': 'I like taking photos whenever I can. Here is a small selection of my favourite pictures.',
                 'hobbies.cars': 'Cars',
                 'hobbies.cars.text': 'I am passionate about cars and everything related to motorsport. Here is a video of one of my favourite cars.',
                 'hobbies.video-games': 'Video games',
                 'hobbies.video-games.text': 'I also enjoy playing video games, especially survival games. Here I show the trailer of one of my favourites.',
+
                 'help.title': 'Navigation help',
-                'help.intro': 'This website has been designed prioritising accessibility and simplicity. Below you can find the available features that make it easier to use.',
+                'help.intro': 'This website has been designed with accessibility and simplicity in mind. Below you can find the features available to make its use easier.',
                 'help.structure': 'Site structure',
-                'help.structure.text': 'The site is made up of five main sections accessible from the top menu. To see the full structure, you can check the <a href=\'mapa-sitio.html\'f>Site map</a>.',
+                'help.structure.text': 'The site is made up of five main sections accessible from the top menu. To see the full structure, you can check the <a href=\'mapa-sitio.html\'>Site map</a>.',
                 'help.shortcuts': 'Keyboard shortcuts and accessibility',
                 'help.shortcuts.skip': '<strong>Keyboard navigation:</strong> All elements are accessible using the Tab key. The visual focus is clearly highlighted with a coloured border.',
                 'help.shortcuts.text-size': '<strong>Text size:</strong> The site uses relative units. You can increase the text size using your browser\'s zoom features (<code>"Ctrl"</code> + <code>"+"</code>).',
+
                 'contact.title': 'Contact methods',
                 'contact.intro': 'I will be happy to hear from you through any of the following direct channels:',
                 'contact.email.label': 'Email:',
                 'contact.linkedin.label': 'LinkedIn (Professional profile):',
                 'contact.github.label': 'GitHub (Code repository):',
                 'contact.study.label': 'Current place of study:',
-                'contact.study.text': '<strong data-i18n="contact.study.label">Current place of study:</strong><br>School of Computer Engineering, University of Oviedo.',
+                'contact.study.text':
+                    '<strong data-i18n="contact.study.label">Current place of study:</strong><br>School of Computer Engineering, University of Oviedo.',
+
                 'about.biography': 'Biography',
-                'about.biography.text': 'My name is Iker Álvarez Fernández, I am studying the Master in Web Engineering and I am passionate about computing, web development and cybersecurity.',
+                'about.biography.text':
+                    'My name is Iker Álvarez Fernández, I am studying the Master in Web Engineering and I am passionate about computing, web development and cybersecurity.',
+
                 'about.education': 'Academic background',
-                'about.education.time': '2025 - Present',
+                'about.education.time': '2025 - In progress',
                 'about.education.degree': 'Master in Web Engineering - University of Oviedo',
                 'about.education.time.1': '2021 - 2025',
                 'about.education.degree.1': 'Bachelor\'s Degree in Software Engineering - University of Oviedo',
+
                 'about.experience': 'Professional experience',
                 'about.experience.time': '1/2/2025 - 31/3/2025',
                 'about.experience.position': 'Intern in the cloud architecture area at NTTData',
+                'about.experience.time.1': '1/7/2025 - 31/8/2025',
+                'about.experience.position.1': 'Software development intern at AITIC',
+
+                'about.references_title': 'References and endorsements',
+                'about.references_intro': 'People who can vouch for my academic and professional performance:',
+                'about.ref1_quote':
+                    '"Iker showed great problem-solving skills during his internship, quickly integrating into the team."',
+                'about.ref1_role': 'Head of department at AITIC',
+                'about.ref2_quote':
+                    '"A proactive developer with excellent technical and communication skills. He was key to the success of the billing module."',
+                'about.ref2_role': 'Tech Lead / Internship supervisor at NTTData',
+
                 'about.skills': 'Skills',
                 'about.skills.list.1': 'HTML5, CSS3, JavaScript, TypeScript',
                 'about.skills.list.2': 'Frameworks: Spring Boot and WPF',
                 'about.skills.list.3': 'Programming in Java, C#, C++ and Python',
                 'about.skills.list.4': 'Accessible and responsive design',
+
                 'about.projects': 'Highlighted projects',
                 'about.projects.list.1.title': 'Project 1: Personal site',
-                'about.projects.list.1.description': 'Development of a personal website using HTML, CSS and JavaScript to showcase my portfolio and skills.',
+                'about.projects.list.1.description':
+                    'Development of a personal website using HTML, CSS and JavaScript to showcase my portfolio and skills.',
                 'about.projects.list.2.title': 'Project 2: X3D Editor',
-                'about.projects.list.2.description': 'Creation of a web tool to visualise and manage 3D figures in X3D format from web forms.',
+                'about.projects.list.2.description':
+                    'Creation of a web tool to view and handle 3D shapes in X3D format from web forms.',
                 'about.projects.list.3.title': 'Project 3: Advanced Clipboard Application',
-                'about.projects.list.3.description': 'Development of a desktop application in C# to manage multiple clipboard entries with advanced features. Presented as final degree project.',
+                'about.projects.list.3.description':
+                    'Development of a desktop application in C# to manage multiple clipboard entries with advanced features. Presented as my final degree project.',
+
                 'about.gallery': 'Gallery',
                 'about.gallery.caption.1': 'Personal photo',
                 'about.gallery.caption.2': 'Recent project',
-                'interests.technology-web': 'Technology and Web',
-                'interests.technology-web.text': 'I am interested in web development, artificial intelligence and how technology transforms everyday life.',
+
+                'interests.technology-web': 'Technology and the Web',
+                'interests.technology-web.text':
+                    'I am interested in web development, artificial intelligence and how technology transforms everyday life.',
                 'interests.cinema': 'Cinema',
-                'interests.cinema.text': 'I am passionate about cinema as a way of telling stories. I am especially interested in science fiction films and documentaries.',
+                'interests.cinema.text':
+                    'I am passionate about cinema as a storytelling medium. I am especially interested in science fiction films and documentaries.',
+
                 'map.text': 'Complete list of the pages available on this website:',
-                'footer.updated': 'Last updated:',
+                'footer.updated': 'Last updated: December 10, 2025',
                 'footer.map': 'Site map',
                 'footer.help': 'Help',
                 'footer.contact': 'Contact',
+
                 'skip.content': 'Skip to main content',
                 'myhobbies': 'My hobbies',
                 'langage-select-label': 'Language:'
@@ -164,7 +202,6 @@ class LocalizationManager {
 
     /**
      * Configura los oyentes de eventos para los botones de idioma.
-     * Elimina la necesidad de 'onclick' en el HTML (Separación de intereses).
      */
     attachEventListeners() {
         const buttons = document.querySelectorAll('footer > form');
@@ -212,7 +249,7 @@ class LocalizationManager {
         });
         
         // C. Actualizar valor del select de idioma si existe
-        const langSelect = document.getElementById('language-select');
+        const langSelect = document.querySelector('footer > form select');
         if (langSelect) {
             langSelect.value = lang;
         }

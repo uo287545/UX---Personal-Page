@@ -5,7 +5,6 @@
 class SearchEngine {
     
     constructor() {
-        // Selectores por atributo (Mantenemos tu restricción Zero-Class/ID)
         this.container = document.querySelector('header > div');
         
         if (!this.container) return;
@@ -49,7 +48,7 @@ class SearchEngine {
 
         this.observer.observe(document.documentElement, {
             attributes: true,
-            attributeFilter: ['lang'] // Solo vigilamos el atributo lang
+            attributeFilter: ['lang']
         });
     }
 
@@ -85,7 +84,7 @@ class SearchEngine {
                 { t: "Ayuda", d: "Información de navegación y accesibilidad.", u: "ayuda.html", k: "help soporte instrucciones" },
                 { t: "Mapa del sitio", d: "Índice jerárquico de la web.", u: "mapa-sitio.html", k: "estructura lista enlaces" },
 
-                // --- SECCIONES INTERNAS (Deep Linking) ---
+                // --- SECCIONES INTERNAS ---
                 
                 // Index
                 { t: "Bienvenida (Inicio)", d: "Introducción al portafolio.", u: "index.html#welcome", k: "hola presentacion objetivo" },
@@ -122,7 +121,7 @@ class SearchEngine {
                 { t: "Help", d: "Navigation and accessibility info.", u: "ayuda.html", k: "support instructions" },
                 { t: "Site Map", d: "Hierarchical index.", u: "mapa-sitio.html", k: "structure list links" },
 
-                // --- INTERNAL SECTIONS (Deep Linking) ---
+                // --- INTERNAL SECTIONS ---
 
                 // Index
                 { t: "Welcome (Home)", d: "Portfolio introduction.", u: "index.html#welcome", k: "hello presentation goal" },

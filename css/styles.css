@@ -8,21 +8,11 @@
     --color-primary-dark: #292f4a;
     --color-text: #1f2933;
     --color-muted: #6b7280;
-  
     --radius-lg: 1rem;
-    /* Sombras usando rem para escalado */
-    --shadow-soft: 0 0.75rem 1.5rem rgba(15, 23, 42, 0.12);
 }
   
-/* ===== Base ===== */
-
-html {
-    /* Fijamos el tamaño base, vital para usar 'rem' correctamente */
-    font-size: 100%; 
-}
-
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    font-family: system-ui, "Segoe UI",
       Roboto, "Helvetica Neue", Arial, sans-serif;
     background: radial-gradient(
         circle at top,
@@ -32,11 +22,6 @@ body {
     var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
-}
-
-/* Antialias para texto más nítido */
-body, button {
-    -webkit-font-smoothing: antialiased;
 }
 
 /* ===== Tipografía ===== */
@@ -66,12 +51,17 @@ h3 {
     margin-bottom: 0.5rem;
 }
 
+h4 {
+    font-size: 1rem;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
 /* ===== Elementos de Navegación ===== */
 
 header {
     background: linear-gradient(120deg, var(--color-primary), var(--color-primary-dark));
     color: #f9fafb;
-    box-shadow: var(--shadow-soft);
     /* Solo redondeamos abajo */
     border-radius: 0 0 1.25rem 1.25rem; 
 }
