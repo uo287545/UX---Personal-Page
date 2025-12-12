@@ -20,10 +20,6 @@ class SearchEngine {
         this.input = this.container.querySelector('header input');
         this.listContainer = this.container.querySelector('output');
         
-        // Creación dinámica de la lista de resultados
-        this.resultsList = document.createElement('ul');
-        this.listContainer.appendChild(this.resultsList);
-        
         // Detección inicial del idioma del documento
         this.currentLang = document.documentElement.lang || 'es';
         this.index = [];
@@ -245,6 +241,11 @@ const data = {
      * @param {Array} items - Lista de objetos resultado.
      */
     render(items) {
+        // Creación dinámica de la lista de resultados
+        this.listContainer.innerHTML = '';
+        this.resultsList = document.createElement('ul');
+        this.listContainer.appendChild(this.resultsList);
+
         this.resultsList.innerHTML = '';
         const hasResults = items.length > 0;
 
@@ -270,16 +271,14 @@ const data = {
                 this.resultsList.appendChild(li);
             });
         }
-
-        this.resultsList.hidden = false;
     }
 
     /**
      * Cierra el panel de resultados y actualiza estado ARIA.
      */
     closeResults() {
-        this.resultsList.hidden = true;
         this.input.setAttribute('aria-expanded', 'false');
+        this.listContainer.innerHTML = '';
     }
 }
 
