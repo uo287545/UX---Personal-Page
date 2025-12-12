@@ -239,6 +239,8 @@ header > div {
 header > div form {
   position: relative;
   color: #666; /* Color base para el icono */
+  display: flex; /* Hace que input y button estén en línea */
+  align-items: stretch; /* Alinea las alturas */
 }
 
 /* Icono de la lupa */
@@ -249,19 +251,44 @@ header > div form svg {
   transform: translateY(-50%); /* Centrado vertical exacto */
   pointer-events: none; /* Permite hacer clic "a través" del icono hacia el input */
   transition: color 0.3s;
+  z-index: 1; /* Asegura que quede sobre el input */
 }
 
 /* Campo de búsqueda */
 header > div form input[type="search"] {
   padding: 0.6rem 1rem 0.6rem 2.5rem; /* Padding izquierdo grande para dejar sitio al icono */
   border: 0.125rem solid #ccc;
-  border-radius: 0.25rem;
+  border-radius: 0.25rem 0 0 0.25rem; /* Solo redondeado a la izquierda */
+  border-right: none; /* Elimina el borde derecho para fusionar con el botón */
   width: 100%;
-  min-width: 250px;
+  min-width: 200px;
   font-size: 1rem;
   transition: border-color 0.3s;
-  /* Aseguramos que el texto y el placeholder hereden el color correcto si el contenedor cambia */
   color: #333;
+}
+
+/* Botón de búsqueda */
+header > div form button[type="submit"] {
+  padding: 0.6rem 1.25rem;
+  background-color: #68bbe3;
+  color: #ffffff;
+  border: 0.125rem solid #68bbe3;
+  border-radius: 0 0.25rem 0.25rem 0; /* Solo redondeado a la derecha */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+header > div form button[type="submit"]:hover {
+  background-color: #4c5270;
+  border-color: #4c5270;
+  transform: translateY(-0.05rem);
+}
+
+header > div form button[type="submit"]:active {
+  transform: translateY(0);
 }
 
 /* Estados de foco: Cambiamos el color del borde y del icono para feedback visual */
@@ -362,5 +389,20 @@ header > div ul li span {
 
     img, video {
         width: 100%; /* Imágenes y videos a ancho completo */
+    }
+
+    /* Asegura que el buscador sea responsivo en móvil */
+    header > div form {
+        width: 100%;
+    }
+
+    header > div form input[type="search"] {
+        min-width: 0;
+        flex: 1; /* Toma todo el espacio disponible */
+    }
+
+    header > div form button[type="submit"] {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
     }
 }

@@ -14,6 +14,10 @@ header {
   padding: 1.25rem 1.5rem;
 }
 
+header div{
+  margin:0;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;

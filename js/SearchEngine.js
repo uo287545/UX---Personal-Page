@@ -10,7 +10,9 @@ class SearchEngine {
         if (!this.container) return;
 
         this.input = this.container.querySelector('header input');
-        this.resultsList = this.container.querySelector('ul');
+        this.listContainer = this.container.querySelector('output');
+        this.resultsList = document.createElement('ul');
+        this.listContainer.appendChild(this.resultsList);
         
         this.currentLang = document.documentElement.lang || 'es';
         this.index = [];

@@ -81,7 +81,9 @@ class LocalizationManager {
                 'footer.contact': 'Contacto',
                 'skip.content': 'Saltar al contenido principal',
                 'myhobbies': 'Mis Aficiones',
-                'langage-select-label': 'Idioma:'
+                'langage-select-label': 'Idioma:',
+                'change-language-button': 'Cambiar',
+                'search.submit': 'Buscar'
             },
             en: {
                 'site.title': 'Personal website',
@@ -181,7 +183,9 @@ class LocalizationManager {
 
                 'skip.content': 'Skip to main content',
                 'myhobbies': 'My hobbies',
-                'langage-select-label': 'Language:'
+                'langage-select-label': 'Language:',
+                'change-language-button': 'Change',
+                'search.submit': 'Search'
             }
         };
 
@@ -204,11 +208,19 @@ class LocalizationManager {
      * Configura los oyentes de eventos para los botones de idioma.
      */
     attachEventListeners() {
-        const buttons = document.querySelectorAll('footer > form');
+
+        // Evento para el BOTÓN (para cumplir accesibilidad y dar feedback visual)
+        const buttons = document.querySelectorAll('footer > form button');
         buttons.forEach(btn => {
-            btn.addEventListener('change', (event) => {
-                const selectedLang = event.target.value;
-                this.changeLanguage(selectedLang);
+            btn.addEventListener('click', (event) => {
+                // Prevenir envío de formulario si fuera submit
+                event.preventDefault(); 
+                // Buscar el select asociado en el mismo formulario
+                const form = btn.closest('form');
+                const select = form.querySelector('select');
+                if (select) {
+                    this.changeLanguage(select.value);
+                }
             });
         });
     }
