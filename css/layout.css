@@ -1,79 +1,272 @@
+/* ===== Layout general (Estructura y Posicionamiento) ===== */
+
+/* --- Reset básico --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  min-height: 100vh; /* Ocupa al menos toda la altura de la pantalla */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* --- Cabecera --- */
+/* --- Cabecera (Header) --- */
 header {
   display: flex;
-  flex-direction: column; /* Móvil primero: en columna */
-  align-items: center;    /* Centrado en móvil */
+  flex-direction: column; /* Mobile First */
+  align-items: center;
   gap: 1rem;
   padding: 1.25rem 1.5rem;
 }
 
-header div{
-  margin:0;
-}
-
-nav {
+/* --- Navegación Principal --- */
+header nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.5rem;
 }
 
-body > nav {
-  padding: 0.5rem 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+header nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* El padding define el tamaño clicable */
 }
 
-body > nav ol, footer nav ul {
+/* --- Buscador (Estructura) --- */
+header > div {
+  position: relative;
+  margin-top: 1rem;
+  width: 100%; /* Base para móvil */
+  max-width: 20rem; /* Tope para escritorio */
+}
+
+header > div form {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Posicionamiento del icono SVG */
+header > div form svg {
+  position: absolute;
+  top: 50%;
+  left: 0.8rem;
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+header > div form input[type="search"] {
+  width: 100%;
+  min-width: 200px;
+  padding: 0.6rem 1rem 0.6rem 2.5rem; /* Espacio izq para el icono */
+  border-right: none; /* Estructuralmente quitamos el borde para unirlo al botón */
+}
+
+header > div form button[type="submit"] {
+  padding: 0.6rem 1.25rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Lista desplegable de resultados */
+header > div ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1000;
+  max-height: 20rem;
+  overflow-y: auto;
+}
+
+header > div ul[hidden] {
+  display: none;
+}
+
+header > div ul li a {
+  display: block;
+  padding: 0.75rem 1rem;
+}
+
+header > div ul li span {
+  display: block;
+  padding: 0.75rem 1rem;
+}
+
+/* Elementos internos del resultado */
+header > div ul li a strong,
+header > div ul li a small {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+/* --- Migas de Pan (Breadcrumbs) --- */
+body > nav {
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+}
+
+body > nav ol {
   padding: 0;
   margin: 0;
-  gap: 0.5rem;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+}
+
+body > nav li:not(:last-child)::after {
+  content: ">";
+  margin-left: 0.5rem;
 }
 
 /* --- Contenido Principal --- */
 main {
   flex: 1;
-  width: min(60rem, 100% - 2rem); 
+  width: min(60rem, 100% - 2rem);
   margin: 2rem auto 3rem;
 }
 
-/* Secciones */
+/* Secciones y Espaciado de Contenido */
 section {
   margin-bottom: 2rem;
+  padding: 1.5rem;
 }
 
 section:last-of-type {
   margin-bottom: 0;
 }
 
-/* --- Pie de página --- */
+/* Márgenes tipográficos (Flow) */
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+h2 { margin-bottom: 0.75rem; }
+h3 { margin-bottom: 0.5rem; }
+h4 { margin-bottom: 0; }
+
+p, ul, ol, figure {
+  margin: 0.5rem 0 0;
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+}
+
+/* --- Imágenes y Media --- */
+img, video {
+  width: 50%;
+  height: auto;
+  display: block;
+}
+
+figure {
+  margin: 1.5rem 0 0;
+  text-align: center;
+}
+
+figure img {
+  max-width: min(16rem, 100%);
+  margin: 0 auto;
+}
+
+figcaption {
+  margin-top: 0.75rem;
+}
+
+/* --- Pie de página (Footer) --- */
 footer {
   padding: 1rem 1.5rem;
   margin-top: auto;
+  text-align: center;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 1rem 0;
+  list-style: none;
+}
+
+/* --- Accesibilidad: Enlace de salto --- */
+body > a[href^="#main"] {
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+}
+
+body > a[href^="#main"]:focus {
+  top: 0;
 }
 
 /* ===== Media Queries (Diseño Adaptable) ===== */
 
-/* Tablet y Escritorio (A partir de aprox. 768px) */
-/* Redefiniciones por media query comprobadas */
+/* Móvil: Ajustes específicos (aprox < 480px) */
+@media (max-width: 30rem) {
+  header nav {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  header nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+  }
+
+  section {
+    padding: 1.25rem;
+  }
+
+  img, video {
+    width: 100%;
+  }
+
+  /* Ajustes del buscador en móvil */
+  header > div {
+    max-width: 100%;
+  }
+
+  header > div form {
+    width: 100%;
+  }
+
+  header > div form input[type="search"] {
+    min-width: 0;
+    flex: 1;
+  }
+
+  header > div form button[type="submit"] {
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Escritorio: Cambios estructurales (aprox > 768px) */
 @media (min-width: 48em) {
   header {
-    flex-direction: row; /* Cambia a fila */
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-
-  header h1 {
-    text-align: left;
+  
+  /* En escritorio el buscador no necesita margen superior si está alineado */
+  header > div {
+      margin-top: 0;
+      width: auto;
   }
 }

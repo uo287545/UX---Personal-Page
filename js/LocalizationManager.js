@@ -83,7 +83,8 @@ class LocalizationManager {
                 'myhobbies': 'Mis Aficiones',
                 'langage-select-label': 'Idioma:',
                 'change-language-button': 'Cambiar',
-                'search.submit': 'Buscar'
+                'search.submit': 'Buscar',
+                'search.button': 'Buscar'
             },
             en: {
                 'site.title': 'Personal website',
@@ -185,7 +186,8 @@ class LocalizationManager {
                 'myhobbies': 'My hobbies',
                 'langage-select-label': 'Language:',
                 'change-language-button': 'Change',
-                'search.submit': 'Search'
+                'search.submit': 'Search',
+                'search.button': 'Search'
             }
         };
 
