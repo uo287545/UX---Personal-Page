@@ -328,6 +328,7 @@ header > div ul[hidden] {
 
 header > div ul li {
   border-bottom: 0.0625rem solid #eee;
+  color: #333;
 }
 
 header > div ul li:last-child {

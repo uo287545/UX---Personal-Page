@@ -1,19 +1,30 @@
 /**
- * Motor de búsqueda semántico AVANZADO.
- * Incluye normalización (tildes), búsqueda por términos y ranking de relevancia.
+ * Motor de Búsqueda Semántico (Client-Side).
+ * Implementa normalización de texto, indexación en memoria y
+ * ranking de relevancia simple.
+ * * @class SearchEngine
  */
 class SearchEngine {
     
+    /**
+     * Inicializa el motor de búsqueda, captura referencias al DOM
+     * y configura el estado inicial.
+     */
     constructor() {
+        // Referencias a elementos del DOM
         this.container = document.querySelector('header > div');
         
+        // Validación de seguridad: si no existe el contenedor, detenemos la ejecución
         if (!this.container) return;
 
         this.input = this.container.querySelector('header input');
         this.listContainer = this.container.querySelector('output');
+        
+        // Creación dinámica de la lista de resultados
         this.resultsList = document.createElement('ul');
         this.listContainer.appendChild(this.resultsList);
         
+        // Detección inicial del idioma del documento
         this.currentLang = document.documentElement.lang || 'es';
         this.index = [];
         this.observer = null;
@@ -21,25 +32,34 @@ class SearchEngine {
         this.init();
     }
 
+    /**
+     * Configuración inicial: construcción del índice y asignación de eventos.
+     */
     init() {
+        // Construimos el índice de datos basado en el idioma actual
         this.buildIndex(this.currentLang);
 
+        // Accesibilidad: Vinculación ARIA inicial
+        this.input.setAttribute('aria-expanded', 'false');
+        this.input.setAttribute('aria-controls', 'search-results');
+
+        // Evento principal: búsqueda en tiempo real al escribir
         this.input.addEventListener('input', (e) => {
             this.handleSearch(e.target.value);
         });
 
-        // Prevenir submit estándar
+        // Prevenir el envío estándar del formulario (evita recarga de página)
         const form = this.container.querySelector('form');
         if (form) form.addEventListener('submit', (e) => e.preventDefault());
 
-        // Cerrar al hacer clic fuera
+        // UX: Cerrar resultados al hacer clic fuera del componente
         document.addEventListener('click', (e) => {
             if (!this.container.contains(e.target)) {
-                this.resultsList.hidden = true;
+                this.closeResults();
             }
         });
 
-        // Esto detecta si cambia el atributo 'lang' en la etiqueta <html>
+        // I18n: Observador de mutaciones para detectar cambios de idioma en <html lang="...">
         this.observer = new MutationObserver((mutations) => {
             mutations.forEach((mutation) => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'lang') {
@@ -55,16 +75,13 @@ class SearchEngine {
     }
 
     /**
-     * Se llama automáticamente cuando el MutationObserver detecta un cambio de idioma.
+     * Gestiona el cambio dinámico de idioma regenerando el índice.
      */
     updateLanguage() {
-        // 1. Actualizamos el idioma actual
         this.currentLang = document.documentElement.lang || 'es';
-        
-        // 2. Reconstruimos el índice con los datos del nuevo idioma
         this.buildIndex(this.currentLang);
 
-        // 3. Si el usuario ya tenía algo escrito, refrescamos los resultados
+        // Si hay una búsqueda activa, refrescamos los resultados con el nuevo idioma
         const currentQuery = this.input.value;
         if (currentQuery.trim().length >= 2) {
             this.handleSearch(currentQuery);
@@ -72,10 +89,12 @@ class SearchEngine {
     }
 
     /**
-     * Construye el índice COMPLETO basado en el mapa del sitio.
+     * Construye el índice de contenidos en memoria.
+     * @param {string} lang - Código del idioma ('es' o 'en').
      */
     buildIndex(lang) {
-        const data = {
+        // Estructura de datos: t=título, d=descripción, u=url, k=palabras clave
+const data = {
             es: [
                 // --- PÁGINAS PRINCIPALES ---
                 { t: "Inicio", d: "Página principal y bienvenida.", u: "index.html", k: "home principal web raiz" },
@@ -152,45 +171,50 @@ class SearchEngine {
             ]
         };
         
+        // Fallback a español si el idioma no existe
         this.index = data[lang] || data['es'];
     }
 
     /**
-     * Lógica de búsqueda:
-     * 1. Normaliza.
-     * 2. Tokeniza.
-     * 3. Calcula relevancia.
+     * Lógica principal de búsqueda y ranking.
+     * @param {string} query - Texto introducido por el usuario.
      */
     handleSearch(query) {
+        // 1. Normalización del texto de entrada
         const rawQuery = this.normalizeText(query.trim());
 
+        // UX: No buscar si hay menos de 2 caracteres
         if (rawQuery.length < 2) {
-            this.resultsList.hidden = true;
+            this.closeResults();
             return;
         }
 
+        // 2. Tokenización: dividir frase en palabras
         const terms = rawQuery.split(/\s+/);
 
+        // 3. Algoritmo de Búsqueda y Puntuación
         const results = this.index.map(item => {
             let score = 0;
+            // Normalizamos los campos del índice para comparar
             const title = this.normalizeText(item.t);
             const desc = this.normalizeText(item.d);
             const keys = this.normalizeText(item.k || "");
 
-            // Lógica AND: Deben estar todos los términos
+            // Lógica AND: El resultado debe contener TODOS los términos buscados
             const allTermsMatch = terms.every(term => {
                 let termFound = false;
-
+                
+                // Sistema de pesos para relevancia
                 if (title.includes(term)) {
-                    score += 10;
+                    score += 10; // Mayor peso si está en el título
                     termFound = true;
                 }
                 else if (desc.includes(term)) {
-                    score += 5;
+                    score += 5;  // Peso medio en descripción
                     termFound = true;
                 }
                 else if (keys.includes(term)) {
-                    score += 2;
+                    score += 2;  // Peso bajo en palabras clave
                     termFound = true;
                 }
 
@@ -199,12 +223,16 @@ class SearchEngine {
 
             return allTermsMatch ? { ...item, score } : null;
         })
-        .filter(item => item !== null)
-        .sort((a, b) => b.score - a.score);
+        .filter(item => item !== null) // Eliminar no coincidentes
+        .sort((a, b) => b.score - a.score); // Ordenar por relevancia descendente
 
         this.render(results);
     }
 
+    /**
+     * Utilidad para normalizar texto: elimina acentos y convierte a minúsculas.
+     * Ejemplo: "Música" -> "musica"
+     */
     normalizeText(text) {
         return text
             .normalize("NFD")
@@ -212,23 +240,32 @@ class SearchEngine {
             .toLowerCase();
     }
 
+    /**
+     * Renderiza los resultados en el DOM y gestiona atributos ARIA.
+     * @param {Array} items - Lista de objetos resultado.
+     */
     render(items) {
         this.resultsList.innerHTML = '';
+        const hasResults = items.length > 0;
 
-        if (items.length === 0) {
+        // Accesibilidad: Informar que el menú se ha desplegado
+        this.input.setAttribute('aria-expanded', 'true');
+
+        if (!hasResults) {
             const li = document.createElement('li');
             li.textContent = this.currentLang === 'es' ? 'Sin resultados' : 'No results';
+            li.setAttribute('role', 'status'); 
             this.resultsList.appendChild(li);
         } else {
             items.forEach(item => {
                 const li = document.createElement('li');
                 const a = document.createElement('a');
                 a.href = item.u;
+                // Inserción segura de contenido
                 a.innerHTML = `
                     <strong>${item.t}</strong>
                     <small>${item.d}</small>
                 `;
-
                 li.appendChild(a);
                 this.resultsList.appendChild(li);
             });
@@ -236,6 +273,15 @@ class SearchEngine {
 
         this.resultsList.hidden = false;
     }
+
+    /**
+     * Cierra el panel de resultados y actualiza estado ARIA.
+     */
+    closeResults() {
+        this.resultsList.hidden = true;
+        this.input.setAttribute('aria-expanded', 'false');
+    }
 }
 
+// Inicialización cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', () => new SearchEngine());
