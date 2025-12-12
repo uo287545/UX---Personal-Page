@@ -270,9 +270,9 @@ header > div form input[type="search"] {
 /* Botón de búsqueda */
 header > div form button[type="submit"] {
   padding: 0.6rem 1.25rem;
-  background-color: #68bbe3;
+  background-color: #020d13;
   color: #ffffff;
-  border: 0.125rem solid #68bbe3;
+  border: 0.025rem solid #ffffff;
   border-radius: 0 0.25rem 0.25rem 0; /* Solo redondeado a la derecha */
   font-size: 1rem;
   font-weight: 600;
